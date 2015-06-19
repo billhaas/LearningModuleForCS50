@@ -1,0 +1,47 @@
+ Some of the basic syntax you will need to understand to be proficient at coding includes conditionals,
+ loops and functions.
+ So let's break them down for you to understand.
+ A. First we will discuss conditionals, then loops, then functions.
+ 1. #include <stdio>
+ In many files, which means a place on your computer where you can run or use a program, you will need to incorporate
+ what is called a "library", a pre-written file with some code already written that you can incorporate by reference
+ so you dont have to rewrite it for every file or program you write.
+ In a Program called C, a type of computer language of which there are many, the library you want to include first
+ is called "stdio", pronounced "standard io", and the language you use to include it at the top of your file is:
+ "#include <stdio>" no period or semi-colon necessary thereafter.
+ 2.
+ int main(){}
+     The "int" describes what kind of datatype you except your main function to return; for example int
+     stands for integer. It really just means that it will return a 0 if program runs correctly, and some other integer
+     you can specify in your code if there are certain errors that you might expect when code is run.
+     The () refer to the fact that your function will be taking inputs; all code below it will
+     be within curly braces {}; that's how your computer knows what code to run when you run it.
+ 3.
+ int numb 1, int numb 2;
+     Next we do what's called declarling our variables; it's telling your program what variables you will be using so it knows
+     how much memory to set aside for it.
+     For example, we'll be using two integers we'll call num 1 and num 2, so the code for declaring them, i.e. declaring
+     that we'll be using them, is the above:
+ 4.
+ printf("Enter two integers to check\n");
+    // [syntax for a comment that's not part of your code, usually occuring before code explaining it.]This tells the computer to
+    print the statement between the quotes before the backslash then go to the next line.
+ 5.
+ scanf("%d %d",&numb1,&numb2);
+     // Permits the compiler that is running your code to allow an input typed by the user, %holds a place for it. or in this case, them;
+     "d" says they're integers, &num1, &num2 says that what will be put in are the numbers that represents our two variable we declared.
+
+ 6.
+ if(numb1==numb2)
+     //checking whether two integers are equal.
+ 7. // Then the program will print that the Result is ":" that the first number you put in is equal to the second number:
+ printf("Result: %d = %d",numb1,numb2);
+ 8.
+ else if(numb1>numb2) //checking whether numb1 is greater than numb2.
+ 9. // print that numb1 is greater than num2.
+ printf("Result: %d > %d",numb1,numb2);
+ 10. // else, print that number 2 is greater than numb1:
+ else printf ("Result: %d > %d",numb2,numb1);
+ 11. // returns 0 and dont forget the end "}" from your main function; returns 0 means the program ran satisfactory with no
+    // errors; it's optional to put return 0 because a return of 0 would be the default return type if program ran as expected.
+ return 0:}

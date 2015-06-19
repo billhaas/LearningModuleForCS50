@@ -1,0 +1,18 @@
+C.While(Do)loops.
+    while (test expression) {
+         statement/s to be executed.
+        }
+        1 include
+        2 int main
+        3 declare vars:
+        number, factorial;
+        4 printf("("Enter a number.\n")")
+        5 scanf(""%d",&number)")
+
+        6 while((number>0){      /* while loop continues until test condition number>0 is true */)
+        7. //{do something
+        {factorial=factorial*number;
+                    --number;}
+        8 printf("Factorial=%d",factorial);
+        9 return = 0
+        }

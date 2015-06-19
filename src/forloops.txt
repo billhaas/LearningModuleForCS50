@@ -1,0 +1,30 @@
+    Loops are designed to repeat code over a certain number of times to accomplish a given purpose.
+    three kinds of common loops are "for" loops, "while" loops, and "do while" loops. Think 9 steps generally for a file
+    with a loop.
+    1.remember to include your stdio library. DO YOU REMEMBER HOW?
+            ANSWER #include <stdio>
+    2.remember every file needs a main file; do you remember the syntax for main?
+            ANSWER int main(){}
+    3.remember the next step: We need to declare any variables we're going to use so our system recognizes them.
+            ANSWER declare variables
+            In this case we're going to declare the variales nm sum, count as follows: int n, count, sum=0. We only need to
+            use int once, and sometimes you need to set the initial value of a variable; in this case we have set the initial
+            value = to 0.
+    int n, count, sum=0;
+    4.printf
+    printf("Enter the value of n.\n");
+    5.scanf
+    scanf("%d",&n);
+
+    6.then for loop(){}
+    //(initialization statement; test expression; update statement)
+    for(count=1;count<=n;++count)  //for loop terminates if count>n
+        {
+    7.[do something] printf
+    printf("Sum=%d",sum);
+    8. return 0;
+
+
+
+
+

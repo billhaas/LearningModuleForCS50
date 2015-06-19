@@ -1,0 +1,21 @@
+E. Functions
+    1 #includes
+    2 declare your function and variables
+    int add(int a, int b);               //function prototype(declaration)
+    3 int main(){
+    4     int num1,num2,sum;  //declare variables
+    5      printf("Enters two number to add\n");
+    6      scanf("%d %d",&num1,&num2);
+    7      sum=add(num1,num2);         //function call
+           printf("sum=%d",sum);
+           return 0;
+      }
+
+    8 int add(int a,int b)            //function declarator
+      {
+    9 /* Start of function definition. */
+           int add;
+           add=a+b;
+    10    return add;                  //return statement of function
+      /* End of function definition. */
+      }
