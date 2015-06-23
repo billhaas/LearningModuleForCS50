@@ -23,7 +23,7 @@ public class MainController2CS50 {
                 "c) what we pass in to functions",
                 "d) something else");
 
-        Lesson lessonCS50Lecture = new Lesson("cs50Lecture.txt", cs50q1, cs50q2);
+        Lesson lessonCS50Lecture = new Lesson("cs50Lectureold.txt", cs50q1, cs50q2);
 
         lessonCS50Lecture.displayFile();
 

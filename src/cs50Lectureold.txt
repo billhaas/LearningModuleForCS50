@@ -1,0 +1,207 @@
+SOURCE CODE
+A theme of computer science is layering, or abstraction, building on the works of others before you.
+...
+Today we’ll start to look at source code that looks like this:
+#include <stdio.h>
+int main(void)
+{
+    printf("hello, world\n");
+}
+...
+A special program called a compiler converts the above source code to zeroes and ones,
+or object code that are understood by a CPU to ultimately print "hello world".
+...
+C
+#include <stdio.h>
+int main(void)
+{
+    printf("hello, world\n");
+}
+...
+while (true)
+{
+    printf("hello, world\n");
+}
+...
+true is the boolean expression that while checks, and since true will always be true the loop will run forever.
+for (int i = 0; i < 10; i++)
+{
+   printf("hello, world!\n");
+}
+...
+Variables store something, and we say int counter = 0.
+int means we want to store an integer, or number.
+int counter = 0;
+while (true)
+{
+printf("%d\n",  counter); [4]
+counter++;
+}
+Line 4, beginning with printf and containing a %d is simply syntax for printing some integer,
+which we say is whatever is in counter.
+...
+Boolean expressions translate similarly, with more parentheses and symbols.
+(x < y)
+((x < y) && (y < z))
+...
+The following chunks of code both say the relation between x and y:
+if (x < y)
+{
+    printf("x is less than y\n");
+}
+else if (x > y)
+{
+    printf("x is greater than y\n");
+}
+else
+{
+    printf("x is equal to y\n");
+}
+
+WRITING CODE
+Most computers don’t have a compiler preinstalled, though they can be downloaded like any other software.
+But instead of supporting hundreds of various computer configurations, we give you a standard Linux environment called the CS50 Appliance.
+...
+A hypervisor will run the CS50 Appliance on your computer regardless of whether you have a Mac or PC,
+so all of us can have the illusion of running the same operating system on our computer.
+...
+Within the Appliance, we will use a program called gedit that is a simple text editor.
+Note that the Appliance has a menu with applications, making it a full-fledged computer within your computer, so to speak.
+...
+Let’s open gedit and save a blank file as hello.c. We’ll type in the code for it, but that only gives us the source code.
+To get the object code by compiling it, we run a program called make by typing in make hello, that tells make to look
+for a file called hello.c.make is smart enough to find a compiler in the Appliance and output the zeroes and ones in a file called hello.
+...
+We can then run our program like so:
+jharvard@appliance (~): ./hello
+hello, world
+jharvard@appliance (~):
+...
+In the first few weeks, we’ll use the terminal, the black-and-white window in the bottom half of gedit,
+to focus on the underlying ideas without graphics or windows to distract us.
+...
+If we remove the \n as follows,
+1#include <stdio.h>
+2
+3int main(void)
+4{
+5    printf("hello, world");
+6}
+...
+the terminal will look like:
+jharvard@appliance (~): ./hello
+hello, worldjharvard@appliance (~):
+...
+because \n is telling printf to print a new line after hello, world.
+...
+In the documentation,
+we encourage you to use Dropbox or an equivalent service to back up your programs automatically.
+...
+With hello-1.c, we introduce a variable to store a name:
+1#include <stdio.h>
+2
+3int main(void)
+4{
+5    string s = "David";
+6    printf("hello, %s\n", s);
+7}
+%s is a placeholder for a string, which will be replaced by printf when it runs.
+...
+In a command-line interface like the terminal, we need to move into the folder to where our program is saved in order to compile and run it.
+    cd is a command we can run, which stands for change directory. We type cd Dropbox to change our folder, and by typing ls,
+    which stands for list, we can see files in our folder.
+    jharvard@appliance (~): cd Dropbox
+    jharvard@appliance (~/Dropbox): ls
+    hello-1.c  src1m
+    jharvard@appliance (~/Dropbox):
+...
+But when we tried to make hello-1, we get many errors. Let’s look at the first:
+    jharvard@appliance (~/Dropbox): make hello-1
+    clang -ggdb3 -O0 -std=c99 -Wall -Werror    hello-1.c  -lcs50 -lm -o hello-1
+    hello-1.c:5:5: error: use of undeclared identifier 'string'; did you mean 'stdin'?
+        string s = "David";
+        ^~~~~
+        stdin
+        ...
+The compiler tells us the error is in line 5, column 5. This is because string doesn’t exist in C.
+CS50 created it as training wheels for the first few weeks in cs50.h, which we add as follows in line 1:
+1#include <cs50.h>
+2#include <stdio.h>
+3
+4int main(void)
+5{
+6    string s = "David";
+7    printf("hello, %s\n");
+8}
+...
+Functions previously written, like printf, are in files called stdio.h and stdio.c,
+that we can include in our programs so we can reuse those functions. stdio.h is the header file and stdio.c is the actual C source code,
+but if we link just stdio.h the compiler will know to include stdio.c.
+...
+Now we get another error, in line 7:
+    jharvard@appliance (~/Dropbox): make hello-1
+    clang -ggdb3 -O0 -std=c99 -Wall -Werror    hello-1.c  -lcs50 -lm -o hello-1
+    hello-1.c:7:21: error: more '%' conversions than data arguments [-Werror, -Wformat]
+        printf("hello, %s\n");
+                       ~^
+...
+Well, to fix this, we learn that the stuff inside the parentheses are arguments, or what we pass in to functions.
+Earlier, with the Scratch example, we specified that %d referred to the variable counter.
+In this case, the string we want to print is s, so we add s to the arguments in line 7.
+...
+1#include <cs50.h>
+2#include <stdio.h>
+3
+4int main(void)
+5{
+6    string s = "David";
+7    printf("hello, %s\n", s);
+8}
+...
+Now hello-1.c compiles and runs successfully, but let’s make things more interesting.
+The CS50 Library, in cs50.h, contains functions like GetInt and GetString, which gets input from the user.
+...
+Let’s now write hello-2.c that gets a string as the name:
+...
+1#include <cs50.h>
+2#include <stdio.h>
+3
+4int main(void)
+5{
+6    string s = GetString();
+7    printf("hello, %s\n", s);
+8}
+Note that we have parentheses after GetString, signifying that it is a function. We also end every statement with a semicolon.
+...
+string s means, create a new variable to hold a string, and call it s.
+...
+Now we compile and run hello-2, and the blinking cursor waits for input and prints the name as we wanted.
+But we can extend the program further with another puzzle piece:
+...
+ 1#include <cs50.h>
+ 2#include <stdio.h>
+ 3
+ 4int main(void)
+ 5{
+ 6    printf("Your name please: ");
+ 7    string s = GetString();
+ 8    printf("hello, %s\n", s);
+ 9}
+...
+And remember to run make hello-2 every time the program changes,
+because while the source code has been updated we need a compiler to update the object code. Now we get:
+...
+jharvard@appliance (~/Dropbox): ./hello-2
+Your name please: Daven
+hello, Daven
+jharvard@appliance (~/Dropbox):
+...
+Eventually, we’ll use loops and conditions to do even more interesting things.
+
+
+
+
+
+
+
+
