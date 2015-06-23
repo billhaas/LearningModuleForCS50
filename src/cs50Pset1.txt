@@ -1,0 +1,176 @@
+FILE MANAGER
+Okay, let’s create a folder (otherwise known as a "directory") in which your code for this problem set will soon live.
+Go ahead and double-click Home on John Harvard’s desktop (toward the appliance’s top-left corner).
+A window entitled jharvard - File Manager should appear, indicating that you’re inside of John Harvard’s "home directory"
+(i.e., personal folder). Then double-click the folder called Dropbox,
+at which point the window’s title should change to Dropbox - File Manager.
+Next select File > Create Folder… in the window’s top-left corner, input a name of pset1, and then click Create.
+(If you misname the folder, control-click the misnamed folder, select Rename…, enter a new name, and click Rename.)
+Then double-click that pset1 folder to open it. The window’s title should change to pset1 - File Manager,
+and you should see an otherwise empty folder (since you just created it).
+..
+GEDIT
+Okay, go ahead and close any open windows, then select Menu > Accessories > gedit.
+(Recall that Menu is in the appliance’s bottom-left corner.)
+A window entitled Untitled Document 1 - gedit should appear, inside of which is a tab entitled Untitled Document 1.
+Clearly the document is just begging to be saved. Go ahead and type hello (or the ever-popular asdf) on line 1 of the document,
+and then notice how the tab’s name is now prefixed with an asterisk (*),
+indicating that you’ve made changes since the file was first opened. Select File > Save, and a window entitled Save As should appear.
+Input hello.txt next to Name, then click Home under Places. You should then see the contents of John Harvard’s home directory.
+Double-click Dropbox, then double-click pset1, and you should find yourself inside that empty folder you created.
+Now, at the bottom of this same window, you should see that the file’s default Character Encoding is Unicode (UTF-8)
+and that the file’s default Line Ending is Unix/Linux. No need to change either; just notice they’re there.
+That the file’s Line Ending is Unix/Linux just means that gedit will insert (invisibly) \n at the end of any line of text that you type.
+Windows, by contrast, uses \r\n, and Mac OS uses \r, but more on those (delightfully annoying) details some other time.
+..
+Okay, click Save in the window’s bottom-right corner. The window should close,
+and you should see that the original window’s title is now hello.txt (~/Dropbox/pset1) - gedit.
+The parenthetical just means that hello.txt is inside of pset1, which is inside of Dropbox,
+which is inside of ~, which is shorthand notation for John Harvard’s home directory.
+A useful reminder is all. The tab, meanwhile, should now be entitled hello.txt
+(with no asterisk, unless you accidentally hit the keyboard again).
+...
+Okay, with hello.txt still open in gedit, notice that beneath your document is a "terminal window"
+(aka "terminal emulator"), a command-line (i.e., text-based) interface via which you can navigate
+the appliance’s hard drive and run programs (by typing their name). Notice that the window’s "prompt" is
+...
+jharvard@appliance (~):
+which means that you are logged into the appliance as John Harvard
+and that you are currently inside of ~ (i.e., John Harvard’s home directory).
+If that’s the case, there should be a Dropbox directory somewhere inside. Let’s confirm as much.
+...
+Click somewhere inside of that terminal window, and the prompt should start to blink. Type
+...
+ls
+and then Enter. That’s a lowercase L and a lowercase S, which is shorthand notation for "list."
+Indeed, you should then see a list of the folders inside of John Harvard’s home directory,
+among which is Dropbox! Let’s open that folder, followed immediately by the pset1 folder therein. Type
+...
+cd Dropbox/pset1
+or even
+...
+cd ~/Dropbox/pset1
+followed by Enter to change your directory to ~/Dropbox/pset1 (ergo, cd). You should find that your prompt changes to
+...
+jharvard@appliance (~/Dropbox/pset1):
+confirming that you are indeed now inside of ~/Dropbox/pset1
+(i.e., a directory called pset1 inside of a directory called Dropbox inside of John Harvard’s home directory). Now type
+...
+ls
+followed by Enter. You should see hello.txt!
+Now, you can’t click or double-click on that file’s name there; it’s just text. But that listing does confirm that hello.txt is where we hoped it would be.
+...
+Let’s poke around a bit more. Go ahead and type
+...
+cd
+and then Enter. If you don’t provide cd with a "command-line argument" (i.e., a directory’s name),
+it whisks you back to your home directory by default. Indeed, your prompt should now be:
+...
+jharvard@appliance (~):
+Phew, home sweet home. Make sense? If not, no worries; it soon will!
+It’s in this terminal window that you’ll soon be compiling your first program!
+For now, though, close gedit (via File > Quit) and, with it, hello.txt.
+...
+Incidentally, if the need arises, know that you can transfer files
+to and from the appliance per the instructions at
+https://manual.cs50.net/appliance/2014/#how_transfer_files_between_appliance_and_your_computer.
+...
+HELLO, C
+...
+Shall we have you write your first program? Go ahead and launch gedit.
+(Remember how?)
+You should find yourself faced with another Unsaved Document 1.
+Go ahead and save the file as hello.c (not hello.txt) inside of pset1, just as before.
+(Remember how?) Once the file is saved, the window’s title should change to hello.c (~/Dropbox/pset1) - gedit,
+and the tab’s title should change to hello.c.
+(If either does not, best to close gedit and start fresh! Or ask for help!)
+...
+Go ahead and write your first program by typing these lines into the file (though you’re welcome to change the words
+between quotes to whatever you’d like):
+...
+#include <stdio.h>
+...
+int main(void)
+{
+    printf("hello, world\n");
+}
+Notice how gedit adds "syntax highlighting" (i.e., color) as you type.
+Those colors aren’t actually saved inside of the file itself; they’re just added by gedit
+to make certain syntax stand out.
+Had you not saved the file as hello.c from the start,
+gedit wouldn’t know (per the filename’s extension) that you’re writing C code, in which case those colors would be absent.
+...
+Do be sure that you type in this program just right, else you’re about to experience your first bug!
+In particular, capitalization matters, so don’t accidentally capitalize words (unless they’re between those two quotes).
+And don’t overlook that one semicolon. C is quite nitpicky!
+...
+When done typing, select File > Save (or hit ctrl-s), but don’t quit.
+Recall that the leading asterisk in the tab’s name should then disappear.
+Click anywhere in the terminal window beneath your code, and its prompt should start blinking. But odds are the prompt itself is just
+...
+jharvard@appliance (~):
+which means that, so far as the terminal window’s concerned, you’re still inside of John Harvard’s home directory,
+even though you saved the program you just wrote inside of ~/Dropbox/pset1 (per the top of gedit's window).
+No problem, go ahead and type
+...
+cd Dropbox/pset1
+or
+...
+cd ~/Dropbox/pset1
+at the prompt, and the prompt should change to
+...
+jharvard@appliance (~/Dropbox/pset1):
+in which case you’re where you should be! Let’s confirm that hello.c is there. Type
+...
+ls
+at the prompt followed by Enter, and you should see both hello.c and hello.txt?
+If not, no worries; you probably just missed a small step.
+Best to restart these past several steps or ask for help!
+...
+Assuming you indeed see hello.c, let’s try to compile! Cross your fingers and then type
+...
+make hello
+at the prompt, followed by Enter. (Well, maybe don’t cross your fingers whilst typing.)
+To be clear, type only hello here, not hello.c.
+If all that you see is another, identical prompt, that means it worked!
+Your source code has been translated to object code (0s and 1s)
+that you can now execute.
+Type
+...
+./hello
+at your prompt, followed by Enter, and you should see whatever message you wrote between quotes in your code!
+Indeed, if you type
+...
+ls
+followed by Enter, you should see a new file, hello, alongside hello.c and hello.txt.
+
+If, though, upon running make, you instead see some error(s), it’s time to debug!
+(If the terminal window’s too small to see everything,
+click and drag its top border upward to increase its height.)
+If you see an error like expected declaration or something no less mysterious,
+odds are you made a syntax error (i.e., typo) by omitting some character or adding something in the wrong place.
+Scour your code for any differences vis-à-vis the template above. It’s easy to miss the slightest of things when learning to program,
+so do compare your code against ours character by character; odds are the mistake(s) will jump out!
+Anytime you make changes to your own code, just remember to re-save via File > Save (or ctrl-s),
+then re-click inside of the terminal window, and then re-type
+...
+make hello
+at your prompt, followed by Enter.
+(Just be sure that you are inside of ~/Dropbox/pset1 within your terminal window, as your prompt will confirm or deny.)
+If you see no more errors, try running your program by typing
+...
+./hello
+at your prompt, followed by Enter!
+Hopefully you now see precisely the below?
+...
+hello, world
+If not, reach out for help!
+...
+Incidentally, if you find gedit​'s built-in terminal window too small for your tastes,
+know that you can open one in its own window via Menu > Programming > Terminal.
+You can then alternate between gedit and Terminal as needed, as by clicking either’s name along the appliance’s bottom.
+...
+Woo hoo! You’ve begun to program!
+
+
+

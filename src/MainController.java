@@ -36,9 +36,9 @@ public class MainController {
             lessonConditional.displayQuestion(i);
             // mcq.displayQuestion();
             while (!lessonConditional.getQuestionArray()[i].checkAnswer(lessonConditional.getUserAnswer())) {
-                System.out.println("Answer incorrect.  Please review Section and try again.");
                 lessonConditional.displayNote(i);
                 //display notes that are relevant to question
+                System.out.println("\nAnswer incorrect.  Please review Section above and try again.");
                 lessonConditional.displayQuestion(i);
                 //display question again
                 //check again
@@ -69,9 +69,9 @@ public class MainController {
             lessonLoops.displayQuestion(i);
             // mcq.displayQuestion();
             while (!lessonLoops.getQuestionArray()[i].checkAnswer(lessonLoops.getUserAnswer())) {
-                System.out.println("Answer incorrect.  Please review Section and try again.");
                 lessonLoops.displayNote(i);
                 //display notes that are relevant to question
+                System.out.println("\nAnswer incorrect.  Please review Section above and try again.");
                 lessonLoops.displayQuestion(i);
                 //display question again
                 //check again
@@ -103,9 +103,9 @@ public class MainController {
             lessonWhileLoops.displayQuestion(i);
             // mcq.displayQuestion();
             while (!lessonWhileLoops.getQuestionArray()[i].checkAnswer(lessonWhileLoops.getUserAnswer())) {
-                System.out.println("Answer incorrect.  Please review Section and try again.");
                 lessonLoops.displayNote(i);
                 //display notes that are relevant to question
+                System.out.println("\nAnswer incorrect.  Please review Section above and try again.");
                 lessonLoops.displayQuestion(i);
                 //display question again
                 //check again
@@ -137,9 +137,9 @@ public class MainController {
             lessonDoWhileLoops.displayQuestion(i);
             // mcq.displayQuestion();
             while (!lessonDoWhileLoops.getQuestionArray()[i].checkAnswer(lessonLoops.getUserAnswer())) {
-                System.out.println("Answer incorrect.  Please review Section and try again.");
                 lessonDoWhileLoops.displayNote(i);
                 //display notes that are relevant to question
+                System.out.println("\nAnswer incorrect.  Please review Section above and try again.");
                 lessonDoWhileLoops.displayQuestion(i);
                 //display question again
                 //check again
@@ -171,9 +171,9 @@ public class MainController {
             lessonFunctions.displayQuestion(i);
             // mcq.displayQuestion();
             while (!lessonFunctions.getQuestionArray()[i].checkAnswer(lessonLoops.getUserAnswer())) {
-                System.out.println("Answer incorrect.  Please review Section and try again.");
                 lessonFunctions.displayNote(i);
                 //display notes that are relevant to question
+                System.out.println("\nAnswer incorrect.  Please review Section above and try again.");
                 lessonFunctions.displayQuestion(i);
                 //display question again
                 //check again
